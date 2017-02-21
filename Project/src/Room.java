@@ -6,13 +6,13 @@ class Room
 {
     private String description;
     public int damage;
-    private Health health;
-    private HashMap exits;        // stores exits of this room.
+    //private Health health;
+    private HashMap<String, Room> exits;        // stores exits of this room.
 
     public Room(String description) 
     {
         this.description = description;
-        exits = new HashMap();
+        exits = new HashMap<String, Room>();
     }
 
     public void setExits(Room north, Room east, Room south, Room west, Room up, Room down) 
@@ -44,8 +44,8 @@ class Room
     public String exitString()
     {
         String returnString = "Exits:";
-		Set keys = exits.keySet();
-        for(Iterator iter = keys.iterator(); iter.hasNext(); )
+		Set<String> keys = exits.keySet();
+        for(Iterator<String> iter = keys.iterator(); iter.hasNext(); )
             returnString += " " + iter.next();
         return returnString;
     }

@@ -1,10 +1,8 @@
-import java.util.Iterator;
-import java.util.Set;
 
 class Game 
 {
     private Parser parser;
-    private Health health;
+   // private Health health;
     private Room currentRoom;
         
     public Game() 
@@ -46,12 +44,12 @@ class Game
         {
             Command command = parser.getCommand();
             finished = processCommand(command);
-            if(health.hp <= 0)
+            if(Health.hp <= 0)
             {
             	finished = true;
             }
         }
-        if(health.hp <= 0)
+        if(Health.hp <= 0)
         	System.out.println("You have died! Game Over!");
         else
         	System.out.println("Thank you for playing.");
@@ -110,15 +108,15 @@ class Game
     
     private void getHealth()
     {
-    	System.out.println(health.hp);
+    	System.out.println(Health.hp);
     }
     private void getDamagedHealth()
     {
-    	health.playerDamaged();
+    	Health.playerDamaged();
     }
     private void killPlayer()
     {
-    	health.killPlayer();
+    	Health.killPlayer();
     }
 
     private void goRoom(Command command) 
